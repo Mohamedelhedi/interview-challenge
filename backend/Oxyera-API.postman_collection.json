@@ -1,0 +1,37 @@
+{
+  "info": {
+    "_postman_id": "oxyera-collection-id",
+    "name": "Oxyera API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Patients",
+      "item": [
+        { "name": "Create Patient", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"name\": \"John Doe\",\n  \"dateOfBirth\": \"1980-01-01\"\n}" }, "url": { "raw": "{{baseUrl}}/patient", "host": ["{{baseUrl}}"], "path": ["patient"] } } },
+        { "name": "List Patients", "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/patient", "host": ["{{baseUrl}}"], "path": ["patient"] } } },
+        { "name": "Update Patient", "request": { "method": "PATCH", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"name\": \"John Updated\"\n}" }, "url": { "raw": "{{baseUrl}}/patient/1", "host": ["{{baseUrl}}"], "path": ["patient", "1"] } } },
+        { "name": "Delete Patient", "request": { "method": "DELETE", "url": { "raw": "{{baseUrl}}/patient/1", "host": ["{{baseUrl}}"], "path": ["patient", "1"] } } }
+      ]
+    },
+    {
+      "name": "Medications",
+      "item": [
+        { "name": "Create Medication", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"name\": \"Aspirin\",\n  \"dosage\": \"100mg\",\n  \"frequency\": \"Once daily\"\n}" }, "url": { "raw": "{{baseUrl}}/medication", "host": ["{{baseUrl}}"], "path": ["medication"] } } },
+        { "name": "List Medications", "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/medication", "host": ["{{baseUrl}}"], "path": ["medication"] } } },
+        { "name": "Update Medication", "request": { "method": "PATCH", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"dosage\": \"200mg\"\n}" }, "url": { "raw": "{{baseUrl}}/medication/1", "host": ["{{baseUrl}}"], "path": ["medication", "1"] } } },
+        { "name": "Delete Medication", "request": { "method": "DELETE", "url": { "raw": "{{baseUrl}}/medication/1", "host": ["{{baseUrl}}"], "path": ["medication", "1"] } } }
+      ]
+    },
+    {
+      "name": "Assignments",
+      "item": [
+        { "name": "Create Assignment", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"patientId\": 1,\n  \"medicationId\": 1,\n  \"startDate\": \"2025-07-10\",\n  \"numberOfDays\": 10\n}" }, "url": { "raw": "{{baseUrl}}/assignment", "host": ["{{baseUrl}}"], "path": ["assignment"] } } },
+        { "name": "List Assignments", "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/assignment", "host": ["{{baseUrl}}"], "path": ["assignment"] } } },
+        { "name": "List Assignments With Remaining", "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/assignment/with-remaining", "host": ["{{baseUrl}}"], "path": ["assignment", "with-remaining"] } } },
+        { "name": "Update Assignment", "request": { "method": "PATCH", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"numberOfDays\": 15\n}" }, "url": { "raw": "{{baseUrl}}/assignment/1", "host": ["{{baseUrl}}"], "path": ["assignment", "1"] } } },
+        { "name": "Delete Assignment", "request": { "method": "DELETE", "url": { "raw": "{{baseUrl}}/assignment/1", "host": ["{{baseUrl}}"], "path": ["assignment", "1"] } } }
+      ]
+    }
+  ]
+}
