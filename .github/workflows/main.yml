@@ -19,3 +19,16 @@ jobs:
       # NEW STEP - See what files we have
       - name: Step 3 - List Files
         run: ls -la
+
+      - name: Investigate the Runner
+        run: |
+          echo "Hello from the runner machine!"
+          echo "My hostname is: $(hostname)"
+          echo "I am running on: $(uname -s -m)" # Prints OS and architecture
+          echo "My current directory is: $(pwd)"
+          echo "The contents of this directory are:"
+          ls -la
+          echo "---"
+          echo "This runner is provided by GitHub. I don't know its exact location, but I can see my IP:"
+          curl -s ifconfig.me # This command gets your public IP
+          echo ""
