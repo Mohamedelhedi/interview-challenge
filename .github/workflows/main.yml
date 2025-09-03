@@ -8,5 +8,14 @@ jobs:
   say-hello:
     runs-on: ubuntu-latest
     steps:
-      - name: Step 1 - Print a Greeting
+      # NEW STEP - Checkout the code
+      - name: Step 1 - Checkout Code
+        uses: actions/checkout@v4
+
+      # EXISTING STEP (now it's Step 2)
+      - name: Step 2 - Print a Greeting
         run: echo "Hello World! My pipeline is starting!"
+
+      # NEW STEP - See what files we have
+      - name: Step 3 - List Files
+        run: ls -la
