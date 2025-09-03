@@ -1,41 +1,12 @@
-name: CI Pipeline
+name: My First Pipeline
 
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
-  build-job:
+  say-hello:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Build
-        run: echo "Hello, $GITHUB_ACTOR!"
-
-  test-job1:
-    runs-on: ubuntu-latest
-    needs: build-job   # run after build
-    steps:
-      - name: Test 1
-        run: echo "This job tests something"
-
-  test-job2:
-    runs-on: ubuntu-latest
-    needs: build-job   # run after build
-    steps:
-      - name: Test 2
-        run: |
-          echo "This job tests something, but takes more time than test-job1."
-          echo "Simulating long test with sleep..."
-          sleep 20
-
-  deploy-prod:
-    runs-on: ubuntu-latest
-    needs: [test-job1, test-job2]   # run after tests
-    environment: production
-    steps:
-      - name: Deploy
-        run: echo "This job deploys something from the $GITHUB_REF branch."
+      - name: Step 1 - Print a Greeting
+        run: echo "Hello World! My pipeline is starting!"
